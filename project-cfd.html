@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marlin CFD: Device Independent Fourier Spectral & LBM Solver by Nijat Rustamov. High-performance C++20, MPI, and LibTorch implementation for Formula 1 Aerodynamics.">
+    <title>Marlin: Device Independent Fourier Spectral | Nijat Rustamov</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="logo">NR.</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#skills">Tech Stack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <!-- SECTION 1: HERO - Project Title & F1 Video -->
+        <section class="giant-hero">
+            <div class="content-wrapper reveal fade-up">
+                <h1 class="giant-title">Marlin CFD</h1>
+                <p class="large-subtitle">Device Independent Fourier Spectral & LBM Solver</p>
+                
+                <div class="tags reveal zoom-in delay-100" style="justify-content: center; margin-bottom: 40px;">
+                    <span class="tag" style="padding: 8px 16px; font-size: 1rem;">C++20</span>
+                    <span class="tag" style="padding: 8px 16px; font-size: 1rem;">MPI + LibTorch</span>
+                    <span class="tag" style="padding: 8px 16px; font-size: 1rem;">Multi-GPU</span>
+                </div>
+            </div>
+
+            <div class="cinema-container reveal zoom-in delay-200">
+                 <!-- LARGE F1 VIDEO -->
+                 <video autoplay loop muted playsinline class="cinema-video">
+                    <source src="assets/f1.mp4" type="video/mp4">
+                    <div class="media-placeholder">F1 Simulation - Large Animation</div>
+                </video>
+            </div>
+            <h2 class="reveal fade-up delay-300" style="margin-top: 20px; font-weight: 400; color: var(--accent);">Formula 1 Aerodynamics Case Study</h2>
+        </section>
+
+        <!-- SECTION 2: F1 Details -->
+        <section class="feature-section">
+            <div class="details-grid">
+                <div class="text-content reveal slide-right">
+                    <h2 style="font-size: 3rem; margin-bottom: 30px; line-height: 1.2;">Extreme Scale<br>Turbulence</h2>
+                    <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 30px;">
+                        Simulating the chaotic wake of a Formula 1 car requires resolving eddies down to the sub-millimeter scale. 
+                        Using the <strong>Smagorinsky Large Eddy Simulation (LES)</strong> model, Marlin captures the transient nature of flow separation and reattachment.
+                    </p>
+                    <p style="font-size: 1.25rem; color: var(--text-secondary);">
+                        The solver runs natively on NVIDIA A100 GPUs via LibTorch tensors, completely bypassing manual CUDA kernels.
+                    </p>
+                </div>
+                
+                <div class="stat-box reveal slide-left delay-200">
+                    <h3 style="color: var(--accent); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 15px;">Run Statistics</h3>
+                    <ul style="list-style: none; font-size: 1.1rem; color: var(--text-primary);">
+                        <li style="margin-bottom: 15px; display: flex; justify-content: space-between;">
+                            <span>Grid Size:</span> <strong>36.5 Million Cells</strong>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; justify-content: space-between;">
+                            <span>Compute:</span> <strong>1x NVIDIA A100</strong>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; justify-content: space-between;">
+                            <span>Memory:</span> <strong>38 GB VRAM</strong>
+                        </li>
+                         <li style="margin-bottom: 15px; display: flex; justify-content: space-between;">
+                            <span>Drag Coeff:</span> <strong style="color: var(--accent);">0.933</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border-color: var(--border); opacity: 0.2; max-width: 1400px; margin: 0 auto;">
+
+        <!-- SECTION 3: Nuclear Dome Intro -->
+        <section class="giant-hero" style="min-height: 80vh; background: linear-gradient(to bottom, var(--bg-color), #161b22);">
+            <div class="reveal fade-up">
+                <h2 class="giant-title" style="font-size: 4rem;">Nuclear Safety</h2>
+                <p class="large-subtitle">Coupled Thermo-Hydraulics in Containment Domes</p>
+            </div>
+
+            <div class="details-grid" style="margin-top: 50px; width: 100%;">
+                <div class="reveal zoom-in">
+                    <!-- VIDEO: Temperature Field -->
+                    <video autoplay loop muted playsinline style="width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                        <source src="assets/T.mp4" type="video/mp4">
+                    </video>
+                    <p style="margin-top: 15px; color: var(--accent); font-family: 'Fira Code';">Temperature Field</p>
+                </div>
+                <div class="reveal zoom-in delay-200">
+                    <!-- VIDEO: Vorticity Field -->
+                    <video autoplay loop muted playsinline style="width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                        <source src="assets/vort.mp4" type="video/mp4">
+                    </video>
+                     <p style="margin-top: 15px; color: var(--accent); font-family: 'Fira Code';">Vorticity Field</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Nuclear Dome Details -->
+        <section class="feature-section">
+            <div class="details-grid">
+                 <div class="reveal zoom-in">
+                    <img src="assets/dome.png" alt="Dome Geometry" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.4);">
+                </div>
+
+                <div class="text-content reveal fade-up delay-100">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Thermal Plumes &<br>Vortex Shedding</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.8;">
+                        Inside a reactor containment dome, heat sources generate massive thermal plumes that drive complex circulation patterns. 
+                        We use a <strong>Double Distribution Function (DDF)</strong> LBM approach: one distribution for fluid momentum ($f$) and another for internal energy ($g$).
+                    </p>
+                    
+                    <div class="stat-box" style="padding: 25px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 15px;">Key Metrics</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-family: 'Fira Code', monospace; font-size: 0.9rem;">
+                            <div>
+                                <span style="display:block; color:var(--text-secondary);">DOFs</span>
+                                <span style="color: var(--accent); font-size: 1.2rem;">1.1 Billion</span>
+                            </div>
+                            <div>
+                                <span style="display:block; color:var(--text-secondary);">Simulated Time</span>
+                                <span style="color: var(--accent); font-size: 1.2rem;">101 Mins</span>
+                            </div>
+                            <div>
+                                <span style="display:block; color:var(--text-secondary);">Output Size</span>
+                                <span style="color: var(--accent); font-size: 1.2rem;">282 GB</span>
+                            </div>
+                             <div>
+                                <span style="display:block; color:var(--text-secondary);">Steps</span>
+                                <span style="color: var(--accent); font-size: 1.2rem;">100,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Technical Deep Dive (Overview) -->
+        <section class="feature-section" style="background: var(--card-bg);">
+            <div class="content-wrapper">
+                 <div class="section-title reveal fade-up"><span>01.</span> Technical Overview</div>
+                 
+                 <div class="reveal fade-up delay-100">
+                    <h2 style="font-size: 2rem; margin-bottom: 20px;">The Methodology</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; max-width: 800px;">
+                        Marlin solves the discretized <strong>Lattice Boltzmann Equation (LBE)</strong> using a tensor-based approach. 
+                        Instead of iterating over cells in a loop (Array-of-Structures), we treat the entire grid as a set of tensors (Structure-of-Arrays) and perform collision/streaming as matrix operations.
+                    </p>
+
+                    <div style="overflow-x: auto; margin-bottom: 50px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;">
+                         $$ f_\alpha(\mathbf{x} + \mathbf{e}_\alpha \delta t, t + \delta t) = f_\alpha^{eq} + \tilde{f}_\alpha - \sum_\beta \left( \mathbf{M}^{-1} \mathbf{S} \mathbf{M} \right)_{\alpha, \beta} \tilde{f}_\beta. $$
+                    </div>
+                 </div>
+
+                 <div class="details-grid" style="padding: 0; gap: 30px;">
+                     <div class="stat-box reveal slide-right" style="background: transparent; border: 1px solid var(--border);">
+                         <h3 style="color: var(--text-primary); margin-bottom: 15px;">Core Capabilities</h3>
+                         <ul style="color: var(--text-secondary); line-height: 2;">
+                             <li>Mid-grid Bounceback Boundaries</li>
+                             <li>Smagorinsky & Vreman Turbulence Models</li>
+                             <li>D2Q9, D3Q19, D3Q27 Stencils</li>
+                             <li>Porous Media Flow</li>
+                         </ul>
+                     </div>
+                     <div class="stat-box reveal slide-left delay-100" style="background: transparent; border: 1px solid var(--border);">
+                         <h3 style="color: var(--text-primary); margin-bottom: 15px;">Hardware Agnostic</h3>
+                         <p style="color: var(--text-secondary);">
+                             By targeting the <strong>LibTorch C++ API</strong>, Marlin code compiles once and runs anywhere PyTorch runs:
+                         </p>
+                         <div style="margin-top: 15px; display: flex; gap: 10px;">
+                             <span class="tag">NVIDIA CUDA</span>
+                             <span class="tag">AMD ROCm</span>
+                             <span class="tag">Intel XPU</span>
+                             <span class="tag">CPU AVX512</span>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Footer / Roadmap -->
+        <section class="feature-section" style="text-align: center; min-height: 50vh;">
+            <div class="reveal zoom-in">
+                <h2 style="font-size: 3rem; margin-bottom: 20px;">What's Next?</h2>
+                <p style="font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 50px;">
+                    Multiphase flow, Reactive flow, and Compressible regimes.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/idaholab/marlin" target="_blank" class="github-button" style="padding: 15px 30px; font-size: 1.1rem;">
+                        <svg height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github" style="margin-right: 10px;">
+                            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="white"></path>
+                        </svg>
+                        View Project Source on GitHub
+                    </a>
+                </div>
+                <br>
+                <div class="reveal fade-up delay-200">
+                    <a href="index.html#projects" class="back-link" style="border: none; font-size: 1.1rem; opacity: 0.7;">← Back to Portfolio</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nijat Rustamov. Built with Code.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

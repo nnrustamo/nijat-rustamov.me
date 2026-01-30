@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LBM GPU Accelerator by Nijat Rustamov. High-performance Lattice Boltzmann Method implementation using CUDA for real-time fluid dynamics simulation.">
+    <title>LBM GPU Accelerator | Nijat Rustamov</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- MathJax for rendering equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="logo">NR.</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#skills">Tech Stack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-detail-hero">
+            <div class="content-wrapper">
+                <h1>LBM GPU Accelerator</h1>
+                <div class="tags">
+                    <span class="tag">CUDA</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">GPU</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-content">
+            <div class="project-description">
+                <p>A high-performance implementation of the Lattice Boltzmann Method (D3Q19 scheme) using CUDA. The solver achieves real-time visualization of vortex shedding and turbulent flows.</p>
+                
+                <h3>LBM Evolution Equation</h3>
+                <div class="modal-equation">
+                    $$ f_i(\mathbf{x} + \mathbf{c}_i \Delta t, t + \Delta t) - f_i(\mathbf{x}, t) = -\frac{1}{\tau} (f_i(\mathbf{x}, t) - f_i^{eq}(\mathbf{x}, t)) $$
+                </div>
+                
+                <p>The collision step is local, making it ideal for the massive parallelism of GPUs. Memory coalescence is optimized by structure-of-arrays (SoA) data layout.</p>
+                <h3>Visualizations</h3>
+                
+                <div class="media-container">
+                    <video autoplay loop muted playsinline controls>
+                        <source src="media/vortex.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/lbm-solver" target="_blank" class="github-button">
+                        <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <br>
+                <a href="index.html#projects" class="back-link">← Back to Projects</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nijat Rustamov. Built with Code.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

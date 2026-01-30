@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nijat Rustamov - PhD Candidate specializing in Computational Fluid Dynamics (CFD), Physics-Informed Machine Learning, and High-Performance Computing.">
+    <title>Nijat Rustamov | Computational Fluid Dynamics & HPC</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nijat Rustamov",
+      "url": "https://nijat-rustamov.me",
+      "jobTitle": "PhD Candidate",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "University of Wyoming"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/nijat-rustamov",
+        "https://github.com/nnrustamo"
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- MathJax for rendering equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="#" class="logo">NR</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Tech Stack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <video autoplay loop muted playsinline class="hero-video">
+                    <source src="assets/f1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-content animate-on-scroll">
+                <h1>Nijat Rustamov</h1>
+                <p class="intro">Physics, Math and Computing</p>
+                <p>PhD Candidate specializing in CFD, Physics-Informed Machine Learning, and parallel computing.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="animate-on-scroll">
+            <div class="section-title"></span> About Me</div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a researcher bridging the gap between nano and macroscale fluid dynamics using modern high-performance computing. My work focuses on developing high-fidelity <strong>Computational Fluid Dynamics (CFD)</strong> solvers and accelerating them using <strong>Physics-Informed Neural Networks (PINNs)</strong>.</p>
+                    <br>
+                    <p>Currently pursuing my PhD, I enjoy tackling complex multi-scale problems where fluid dynamics meets data science.</p>
+                </div>
+                <div class="about-image">
+                     <div class="about-img-wrapper">
+                        <img src="assets/photo of me.jpg" alt="Profile Picture">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="animate-on-scroll">
+            <div class="section-title"></span> Featured Projects</div>
+            <div class="project-grid">
+                
+                <a href="project-cfd.html" class="project-card-link">
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="simulation-placeholder">
+                                <!-- Placeholder for video/animation -->
+                                <video autoplay loop muted playsinline class="project-video">
+                                    <source src="assets/f1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Introducing Marlin, a high-performance CFD Solver</h3>
+                            <p>A highly scalable Lattice Boltzmann Fluid Solver implemented in C++ with MPI.</p>
+                            <div class="tags">
+                                <span class="tag">C++</span>
+                                <span class="tag">MPI</span>
+                                <span class="tag">GPU</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-pinn.html" class="project-card-link">
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="simulation-placeholder">
+                                <!-- Placeholder for video/animation -->
+                                [ TRAINING NETWORK : PINN_TB ]
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>PINNs for rarefied flows</h3>
+                            <p>Physics-Informed Neural Networks trained to predict gas transport in nano-porous media.</p>
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">GPU</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-lbm.html" class="project-card-link">
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <video autoplay loop muted playsinline class="project-video">
+                                <source src="media/vortex.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <h3>LBM GPU Accelerator</h3>
+                            <p>Lattice Boltzmann Method solver implemented in CUDA for real-time fluid simulation.</p>
+                            <div class="tags">
+                                <span class="tag">CUDA</span>
+                                <span class="tag">C++</span>
+                                <span class="tag">GPU</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="publications" class="animate-on-scroll">
+            <div class="section-title"></span> Publications</div>
+            
+            <div class="publication-group">
+                <h3>Books</h3>
+                <div class="publication-card">
+                    <span class="pub-title">Scale Translation in Complex Porous Media</span>
+                    <div class="pub-authors">Lingfu, L., Rustamov, N., Aryana, S. A.</div>
+                    <div class="pub-journal">De Gruyter (2026) <span class="pub-status">In Progress</span></div>
+                </div>
+            </div>
+
+            <div class="publication-group">
+                <h3>Journal Publications</h3>
+                <div class="publication-card">
+                    <span class="pub-title">On multi-block lattice Boltzmann method for high Knudsen number flows</span>
+                    <div class="pub-authors">Rustamov, N., Mostaghimi, P. and Aryana, S.A.</div>
+                    <div class="pub-journal">Advances in Geo-Energy Research, 16(2), pp. 143–157 (2025)</div>
+                </div>
+
+                <div class="publication-card">
+                    <span class="pub-title">Scalable simulation of coupled adsorption and transport of methane in confined complex porous media with density preconditioning</span>
+                    <div class="pub-authors">Rustamov, N., Liu, L., & Aryana, S. A.</div>
+                    <div class="pub-journal">Gas Science and Engineering, 119, 205131 (2023)</div>
+                </div>
+
+                <div class="publication-card">
+                    <span class="pub-title">Scalable simulation of pressure gradient-driven transport of rarefied gases in complex permeable media using lattice Boltzmann method</span>
+                    <div class="pub-authors">Rustamov, N., Douglas, C. C., & Aryana, S. A.</div>
+                    <div class="pub-journal">Fluids, 8(1), 1 (2022)</div>
+                </div>
+            </div>
+
+            <div class="publication-group">
+                <h3>Work in Progress</h3>
+                <div class="publication-card">
+                    <span class="pub-title">Fourier-Hermite neural operators for Boltzmann systems</span>
+                    <div class="pub-authors">Rustamov, N., Aryana, S. A.</div>
+                    <div class="pub-journal">(2026) <span class="pub-status">In Progress</span></div>
+                </div>
+
+                <div class="publication-card">
+                    <span class="pub-title">Application of Multi-fidelity Gappy POD Based Surrogate Models for Prediction of Time-Dependent Lattice Boltzmann Fluid Dynamics Models</span>
+                    <div class="pub-authors">Andrew K., Rustamov, N., Aryana, S. A.</div>
+                    <div class="pub-journal">(2026) <span class="pub-status">In Progress</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="animate-on-scroll">
+            <div class="section-title"></span> Technical Stack</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Computing & Languages</h4>
+                    <ul class="skill-list">
+                        <li>C/C++</li>
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>HTML/CSS/JAVASCRIPT</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>HPC & Tools</h4>
+                    <ul class="skill-list">
+                        <li>MPI & OpenMP</li>
+                        <li>Slurm / PBS</li>
+                        <li>Docker</li>
+                        <li>Git / CI/CD</li>
+                        <li>Make</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>CFD & ML</h4>
+                    <ul class="skill-list">
+                        <li>MOOSE</li>
+                        <li>Ansys Fluent</li>
+                        <li>PyTorch / TensorFlow</li>
+                        <li>Paraview</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Designed & Built by Nijat Rustamov</p>
+    </footer>
+
+
+    <script src="main.js"></script>
+</body>
+</html>

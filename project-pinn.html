@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PINNs for Rarefied Flows: Fourier-Hermite Neural Operator by Nijat Rustamov. Applying neural operators to solver the Boltzmann Equation for gas transport.">
+    <title>PINNs for rarefied flows | Nijat Rustamov</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- MathJax for rendering equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="logo">NR.</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#skills">Tech Stack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <!-- SECTION 1: HERO -->
+        <section class="giant-hero">
+            <div class="content-wrapper reveal fade-up">
+                <h1 class="giant-title">FHNO: Kinetics</h1>
+                <p class="large-subtitle">Fourier-Hermite Neural Operator for Rarefied Gas</p>
+                
+                <div class="tags reveal zoom-in delay-100" style="justify-content: center; margin-bottom: 40px;">
+                    <span class="tag" style="padding: 8px 16px; font-size: 1rem;">PyTorch</span>
+                    <span class="tag" style="padding: 8px 16px; font-size: 1rem;">Neural Operators</span>
+                    <span class="tag" style="padding: 8px 16px; font-size: 1rem;">Boltzmann Eq</span>
+                </div>
+            </div>
+
+            <div class="cinema-container reveal zoom-in delay-200">
+                 <!-- Scientific Visualization Wrapper -->
+                 <img src="assets/combined_predictions_c3_c4_c5.png" alt="Model Predictions" class="cinema-video" style="object-fit: contain;">
+            </div>
+            <h2 class="reveal fade-up delay-300" style="margin-top: 20px; font-weight: 400; color: var(--accent);">Predicting Gas Transport in Porous Media</h2>
+        </section>
+
+        <!-- SECTION 2: Abstract / Intro -->
+        <section class="feature-section">
+            <div class="details-grid">
+                <div class="text-content reveal slide-right">
+                    <h2 style="font-size: 3rem; margin-bottom: 30px; line-height: 1.2;">Transient to<br>Steady State</h2>
+                    <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 30px;">
+                        The <strong>Fourier-Hermite Neural Operator (FHNO)</strong> is a novel architecture designed to map the initial $N$ transient iterations of a simulation to its corresponding steady-state solution.
+                    </p>
+                    <p style="font-size: 1.25rem; color: var(--text-secondary);">
+                        By combining Fourier spectral blocks with Hermite chaos expansions, FHNO captures rarefied gas dynamics in complex porous media, significantly performing standard FNO and HNO approaches.
+                    </p>
+                </div>
+                
+                <div class="stat-box reveal slide-left delay-200" style="background: var(--card-bg); border: 1px solid var(--border); padding: 30px;">
+                    <h3 style="color: var(--accent); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 15px;">Model Performance</h3>
+                    <ul style="list-style: none; font-size: 1.1rem; color: var(--text-primary);">
+                        <li style="margin-bottom: 20px; display: flex; justify-content: space-between;">
+                            <span>Optimal Input Depth:</span> <strong>$N=600$</strong>
+                        </li>
+                        <li style="margin-bottom: 20px; display: flex; justify-content: space-between;">
+                            <span>Accuracy ($R^2$):</span> <strong>&ge; 0.90</strong>
+                        </li>
+                         <li style="margin-bottom: 20px; display: flex; justify-content: space-between;">
+                            <span>Super-resolution:</span> <strong style="color: var(--accent);">4x Upscaling</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border-color: var(--border); opacity: 0.2; max-width: 1400px; margin: 0 auto;">
+
+        <!-- SECTION 3: Methodology (The Math) -->
+        <section class="feature-section" style="background: linear-gradient(to bottom, var(--bg-color), #0d1117);">
+            <div class="content-wrapper">
+                 <div class="section-title reveal fade-up"><span>01.</span> Methodology</div>
+                 
+                 <div class="reveal fade-up delay-100">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Deep Learning Architecture</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px; margin-bottom: 50px;">
+                        The network input is a tensor $\mathbf{f}\in\mathbb{R}^{C\times T}$, where each entry $f_i(t)$ represents the distribution function corresponding to discrete direction $i$ (for D2Q9 lattice) at time $t$. The architecture proceeds in three key stages:
+                    </p>
+                 </div>
+
+                 <!-- 3.1 Temporal Lifting -->
+                 <div class="details-grid" style="margin-bottom: 60px;">
+                    <div class="reveal slide-right">
+                        <h3 style="color: var(--text-primary); margin-bottom: 20px;">1. Temporal Lifting</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            We apply 1D convolutions along the temporal axis to lift the input distributions into a high-dimensional feature space.
+                        </p>
+                        <div class="modal-equation" style="font-size: 0.9rem;">
+                            $$ x^{(\ell)}_c(t) = \phi \left(\sum_{m=1}^{C_{\ell-1}} \sum_{\tau=0}^{K-1} k^{(\ell)}_{c m}(\tau)\, x^{(\ell-1)}_m(t-\tau) + b^{(\ell)}_c\right) $$
+                        </div>
+                    </div>
+                    <div class="reveal slide-left delay-100">
+                        <!-- Architecture Diagram -->
+                        <img src="assets/fhno.png" alt="FHNO Architecture" style="width: 100%; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                    </div>
+                 </div>
+
+                 <!-- 3.2 Spectral Processing -->
+                 <div class="details-grid" style="margin-bottom: 60px;">
+                    <div class="reveal slide-right">
+                         <!-- Spectral Block Diagram (Removed placeholder, using text width) -->
+                    </div>
+                    <div class="reveal slide-left delay-100">
+                        <h3 style="color: var(--text-primary); margin-bottom: 20px;">2. Fourier Spectral Blocks</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Long-range temporal correlations are modeled by mixing channels in the frequency domain. We retain only the lowest $K$ frequency modes.
+                        </p>
+                        <div class="modal-equation" style="font-size: 0.9rem;">
+                             $$ \tilde{Y}_c(k) = \sum_{m=1}^{C} \tilde{X}_m(k) \big( W_{m\to c,\mathrm{r}}(k) + i\, W_{m\to c,\mathrm{i}}(k)\big) $$
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+         <!-- SECTION 4: Hermite Stage -->
+        <section class="feature-section">
+             <div class="content-wrapper reveal fade-up">
+                <h2 style="font-size: 2.5rem; margin-bottom: 40px; text-align: center;">Hermite Chaos & Reconstruction</h2>
+                <div class="stat-box" style="padding: 40px; max-width: 1000px; margin: 0 auto; border-radius: 16px;">
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 30px;">
+                        The final stage operates in the localized kinetic moment space. We project the channel features back onto the D2Q9 lattice basis using Hermite polynomials up to the second order.
+                    </p>
+                    <div style="overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px;">
+                        $$ \hat{f}_i = w_i \bigg( \tilde{a}_0 + \sum_{\alpha} H_1^{\alpha}(i)\,\tilde{a}_1^{\alpha} + \frac{1}{2}\sum_{\alpha,\beta} H_2^{\alpha\beta}(i)\,\tilde{a}_2^{\alpha\beta} \bigg) + \gamma_i\, s_i $$
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--accent); text-align: right; font-family: 'Fira Code';">
+                        Output: Steady-State Distribution $\Rightarrow$ Macroscopic Velocity
+                    </p>
+                </div>
+             </div>
+        </section>
+
+
+        <!-- SECTION 5: Footer -->
+        <section class="feature-section" style="text-align: center; min-height: 40vh;">
+            <div class="reveal zoom-in">
+                <a href="index.html#projects" class="back-link" style="font-size: 1.2rem;">← Back to Projects</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nijat Rustamov. Built with Code.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
